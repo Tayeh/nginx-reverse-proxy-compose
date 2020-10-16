@@ -1,0 +1,20 @@
+version: "3.3"
+services:
+
+  app1:
+    image: tayeh/java-app1:latest
+    ports:
+      - "8081:8080"
+    container_name: app1
+  
+  app2:
+    build: ./app2
+    ports:
+       - "8082:8080"
+    container_name: app2
+
+  nginx:
+    image: tayeh/nginx-reverse-proxy:latest
+    ports:
+      - "80:80"
+    container_name: nginx-reverse-proxy
